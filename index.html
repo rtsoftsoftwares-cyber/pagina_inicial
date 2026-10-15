@@ -7,25 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-app: #070b14;
-      --surface: #0f172a;
-      --surface-glass: rgba(15, 23, 42, 0.85);
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(0, 242, 254, 0.25);
+      --bg-app: #0b192c;
+      --surface: #1e3e62;
+      --surface-glass: rgba(30, 62, 98, 0.9);
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-accent: #ffb703;
       
-      --brand-primary: #f8fafc;
-      --brand-accent: #00f2fe;
-      --brand-accent-glow: rgba(0, 242, 254, 0.2);
-      --brand-success: #00f5d4;
-      --brand-purple: #7928ca;
+      --brand-primary: #ffffff;
+      --brand-accent: #38bdf8;
+      --brand-yellow: #ffb703;
+      --brand-yellow-glow: rgba(255, 183, 3, 0.25);
       
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-light: #64748b;
+      --text-main: #f8fafc;
+      --text-muted: #cbd5e1;
+      --text-light: #94a3b8;
       
-      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
-      --shadow-lg: 0 0 25px rgba(0, 242, 254, 0.15);
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 0 25px rgba(255, 183, 3, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,20 +38,20 @@
       flex-direction: column;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(121, 40, 202, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 90% 90%, rgba(0, 242, 254, 0.1) 0%, transparent 45%);
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 90%, rgba(255, 183, 3, 0.08) 0%, transparent 50%);
     }
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-app); }
-    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
 
-    /* Cabeçalho Executivo Sofisticado */
+    /* Cabeçalho Executivo em Tons de Azul & Amarelo */
     header {
       background: var(--surface-glass);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 0.85rem 2rem;
+      border-bottom: 2px solid var(--border-accent);
+      padding: 0.9rem 2rem;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -77,8 +76,8 @@
     .logo-emblem {
       width: 44px;
       height: 44px;
-      background: linear-gradient(135deg, #1e293b, var(--brand-accent));
-      color: #000;
+      background: linear-gradient(135deg, #0b192c, var(--brand-yellow));
+      color: #0b192c;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -86,7 +85,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-weight: 800;
       font-size: 1.15rem;
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 0 15px var(--brand-yellow-glow);
     }
 
     .logo-title {
@@ -101,7 +100,7 @@
 
     .logo-subtitle {
       font-size: 0.7rem;
-      color: var(--text-muted);
+      color: var(--brand-yellow);
       text-transform: uppercase;
       letter-spacing: 0.14em;
       font-weight: 700;
@@ -109,21 +108,21 @@
     }
 
     .header-cta {
-      background: linear-gradient(135deg, var(--brand-accent), #00a8ff);
-      color: #000;
+      background: linear-gradient(135deg, var(--brand-yellow), #f59e0b);
+      color: #0b192c;
       font-weight: 800;
       padding: 0.65rem 1.4rem;
       border-radius: 10px;
       border: none;
       cursor: pointer;
       font-size: 0.85rem;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+      box-shadow: 0 0 20px var(--brand-yellow-glow);
       transition: all 0.25s ease;
     }
 
     .header-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+      box-shadow: 0 0 25px rgba(255, 183, 3, 0.5);
     }
 
     /* Layout Mantendo as 3 Colunas Fixas */
@@ -153,7 +152,7 @@
       padding: 1.25rem;
       height: fit-content;
       position: sticky;
-      top: 5.2rem;
+      top: 5.4rem;
       box-shadow: var(--shadow-sm);
       backdrop-filter: blur(10px);
     }
@@ -162,7 +161,7 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: var(--brand-accent);
+      color: var(--brand-yellow);
       margin-bottom: 0.85rem;
       padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--border-subtle);
@@ -193,17 +192,17 @@
     }
 
     .menu-item a:hover {
-      background: rgba(0, 242, 254, 0.08);
+      background: rgba(56, 189, 248, 0.12);
       color: var(--brand-accent);
       transform: translateX(3px);
     }
 
     .menu-item a.active {
-      background: rgba(0, 242, 254, 0.15);
-      color: var(--brand-accent);
+      background: rgba(255, 183, 3, 0.15);
+      color: var(--brand-yellow);
       font-weight: 700;
-      border: 1px solid rgba(0, 242, 254, 0.3);
-      box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+      border: 1px solid rgba(255, 183, 3, 0.35);
+      box-shadow: 0 0 15px var(--brand-yellow-glow);
     }
 
     /* Coluna Central */
@@ -226,7 +225,7 @@
     }
 
     .hero-banner {
-      background: linear-gradient(135deg, rgba(18, 26, 41, 0.95), rgba(121, 40, 202, 0.2));
+      background: linear-gradient(135deg, #132847, #1e3e62);
       border: 1px solid var(--border-accent);
       border-radius: 20px;
       padding: 2.5rem;
@@ -238,8 +237,8 @@
     .hero-banner::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 5px; height: 100%;
-      background: var(--brand-accent);
+      top: 0; left: 0; width: 6px; height: 100%;
+      background: var(--brand-yellow);
     }
 
     .hero-banner h2 {
@@ -267,9 +266,9 @@
 
     .tag {
       font-family: 'JetBrains Mono', monospace;
-      background: rgba(0, 245, 212, 0.12);
-      border: 1px solid rgba(0, 245, 212, 0.3);
-      color: var(--brand-success);
+      background: rgba(255, 183, 3, 0.12);
+      border: 1px solid rgba(255, 183, 3, 0.35);
+      color: var(--brand-yellow);
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
       font-size: 0.72rem;
@@ -293,7 +292,7 @@
     }
 
     .service-card:hover {
-      border-color: var(--brand-accent);
+      border-color: var(--brand-yellow);
       transform: translateY(-3px);
       box-shadow: var(--shadow-lg);
     }
@@ -301,7 +300,7 @@
     .service-icon {
       width: 42px;
       height: 42px;
-      background: rgba(0, 242, 254, 0.1);
+      background: rgba(56, 189, 248, 0.15);
       color: var(--brand-accent);
       border-radius: 10px;
       display: flex;
@@ -324,17 +323,17 @@
       line-height: 1.5;
     }
 
-    /* Estilos específicos para Case Ambev e Parceiros */
+    /* Caixa de Destaque para Case Ambev */
     .case-highlight-box {
-      background: rgba(0, 245, 212, 0.04);
-      border: 1px solid rgba(0, 245, 212, 0.2);
+      background: rgba(255, 183, 3, 0.05);
+      border: 1px solid rgba(255, 183, 3, 0.25);
       border-radius: 14px;
       padding: 1.5rem;
       margin-top: 1rem;
     }
 
     .case-highlight-box h4 {
-      color: var(--brand-success);
+      color: var(--brand-yellow);
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
@@ -357,32 +356,32 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: linear-gradient(135deg, #00f5d4, #00b4d8);
-      color: #000;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #ffffff;
       padding: 0.9rem 1.35rem;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 800;
       font-size: 0.92rem;
       width: fit-content;
-      box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+      box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
       transition: all 0.2s ease;
     }
 
     .contact-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
     }
 
     .contact-btn.email {
-      background: linear-gradient(135deg, var(--brand-accent), #0077b6);
-      color: #000;
-      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+      background: linear-gradient(135deg, var(--brand-accent), #0284c7);
+      color: #0b192c;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
     }
 
     /* Widgets Laterais */
     .widget-box {
-      background: rgba(255, 255, 255, 0.02);
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 1rem;
@@ -413,7 +412,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--brand-success);
+      color: var(--brand-yellow);
       margin-top: 0.25rem;
     }
 
@@ -426,11 +425,11 @@
       color: var(--text-muted);
       font-size: 0.82rem;
       margin-top: auto;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
     }
 
     footer p span {
-      color: var(--brand-accent);
+      color: var(--brand-yellow);
       font-weight: 700;
     }
   </style>
@@ -590,7 +589,7 @@
             <div class="service-card">
               <div class="service-icon">💊</div>
               <h4>Maxxi Farmácias</h4>
-              <p><strong>Projeto:</strong> SJ-SCAN - Atendimento Inteligente.<br>Solução simbólica/futura voltada à triagem rápida e atendimento automatizado no varejo farmacêutico.</p>
+              <p><strong>Projeto:</strong> SJ-SCAN - Atendimento Inteligente.<br>Solução voltada à triagem rápida, leitura de códigos e atendimento automatizado no varejo farmacêutico.</p>
             </div>
           </div>
         </div>
