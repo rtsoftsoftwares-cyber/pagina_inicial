@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RT Soft - Consultoria Logística e Automação de Processos</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070a10;
+      --panel-bg: rgba(15, 23, 42, 0.85);
+      --border-color: rgba(0, 242, 254, 0.15);
+      --neon-cyan: #00f2fe;
+      --neon-purple: #7928ca;
+      --neon-green: #00f5d4;
+      --neon-amber: #ffb703;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(121, 40, 202, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 90%, rgba(0, 242, 254, 0.08) 0%, transparent 40%);
+    }
+
+    /* Cabeçalho */
+    header {
+      background: var(--panel-bg);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-badge {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 242, 254, 0.1);
+      border: 1px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      padding: 0.35rem 0.65rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      background: linear-gradient(135deg, #ffffff 30%, var(--neon-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-text p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-cta {
+      background: linear-gradient(135deg, var(--neon-cyan), #00a8ff);
+      color: #000;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.88rem;
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .header-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    }
+
+    /* Layout Principal de 3 Colunas */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr 280px;
+      gap: 1.5rem;
+      max-width: 1400px;
+      width: 100%;
+      margin: 1.5rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    /* Barras Laterais Comuns */
+    .sidebar {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.25rem;
+      backdrop-filter: blur(10px);
+      height: fit-content;
+      position: sticky;
+      top: 5.5rem;
+    }
+
+    .sidebar h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--neon-cyan);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Menu Esquerdo */
+    .menu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .menu-item a {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.65rem 0.85rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .menu-item a:hover, .menu-item a.active {
+      background: rgba(0, 242, 254, 0.08);
+      color: var(--neon-cyan);
+      transform: translateX(3px);
+    }
+
+    /* Coluna Central (Conteúdo Principal) */
+    .content-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(18, 26, 41, 0.9), rgba(121, 40, 202, 0.15));
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-banner h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-banner p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 245, 212, 0.1);
+      border: 1px solid var(--neon-green);
+      color: var(--neon-green);
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Grade de Serviços */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--panel-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--neon-cyan);
+      transform: translateY(-3px);
+    }
+
+    .service-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-card h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Widgets da Barra Direita */
+    .widget-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .widget-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .widget-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .widget-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .metric-value {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--neon-green);
+      margin-top: 0.3rem;
+    }
+
+    /* Rodapé */
+    footer {
+      background: var(--panel-bg);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-top: auto;
+    }
+
+    footer p span {
+      color: var(--neon-cyan);
+      font-weight: 600;
+    }
+
+    /* Responsividade para telas menores */
+    @media (max-width: 1024px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cabeçalho Principal -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-badge">RT</div>
+      <div class="logo-text">
+        <h1>RT Soft</h1>
+        <p>Consultoria Logística & Automação</p>
+      </div>
+    </div>
+    <button class="header-cta" onclick="alert('Entre em contato para agendar uma consultoria!')">Fale com Especialista</button>
+  </header>
+
+  <!-- Estrutura Principal de 3 Colunas -->
+  <div class="main-layout">
+
+    <!-- 1ª Coluna: Barra Lateral Esquerda (Menu de Navegação) -->
+    <aside class="sidebar">
+      <h3>Navegação</h3>
+      <ul class="menu-list">
+        <li class="menu-item"><a href="#" class="active">📊 Visão Geral</a></li>
+        <li class="menu-item"><a href="#">⚙️ Consultoria WMS</a></li>
+        <li class="menu-item"><a href="#">🚀 Automação Pátio</a></li>
+        <li class="menu-item"><a href="#">📦 Controle FEFO/FIFO</a></li>
+        <li class="menu-item"><a href="#">📈 Otimização de Frota</a></li>
+        <li class="menu-item"><a href="#">🛠️ Web Apps & Nuvem</a></li>
+        <li class="menu-item"><a href="#">📞 Contato Direto</a></li>
+      </ul>
+    </aside>
+
+    <!-- 2ª Coluna: Coluna Central (Conteúdo Principal) -->
+    <main class="content-column">
+      
+      <!-- Banner de Boas-Vindas / Hero -->
+      <div class="hero-banner">
+        <h2>Engenharia Logística & Software Sob Medida</h2>
+        <p>Eliminamos gargalos operacionais, planilhas instáveis e perdas de estoque por validade. Conectamos atendimento, armazém e expedição em fluxos digitais de alta performance.</p>
+        <div class="hero-tags">
+          <span class="tag">Zero Papel</span>
+          <span class="tag">Sincronização 24/7</span>
+          <span class="tag">Redução de Custos</span>
+          <span class="tag">Algoritmos FEFO</span>
+        </div>
+      </div>
+
+      <!-- Serviços Principais -->
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h4>Diagnóstico Operacional</h4>
+          <p>Mapeamento completo dos processos de recebimento, separação (picking) e expedição para identificar perdas de tempo e gargalos ocultos.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h4>Sistemas Web & APIs Ágeis</h4>
+          <p>Substituição de arquivos descentralizados por plataformas web robustas baseadas em nuvem, garantindo estabilidade e zero travamentos.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h4>Gestão Rigorosa de Lotes</h4>
+          <p>Implementação de rotinas automatizadas por prioridade de vencimento (First Expired, First Out) com integração direta ao chão de fábrica.</p>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- 3ª Coluna: Barra Lateral Direita (Widgets e Indicadores) -->
+    <aside class="sidebar">
+      <h3>Performance</h3>
+      
+      <div class="widget-box">
+        <div class="widget-title">⏱️ Ganho Médio</div>
+        <div class="widget-desc">Redução no tempo de ciclo de atendimento e liberação de docas.</div>
+        <div class="metric-value">-35%</div>
+      </div>
+
+      <div class="widget-box">
+        <div class="widget-title">🛡️ Confiabilidade</div>
+        <div class="widget-desc">Uptime em soluções na nuvem sem perda de dados históricos.</div>
+        <div class="metric-value">99.9%</div>
+      </div>
+
+      <div class="widget-box" style="margin-top: 1.5rem;">
+        <div class="widget-title">💡 Dica RT Soft</div>
+        <div class="widget-desc">A digitalização de processos elimina até 100% dos erros de transcrição manual por rádio ou papel.</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2026 <span>RT Soft - Consultoria Logística e Automação de Processos</span>. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
