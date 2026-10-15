@@ -9,22 +9,19 @@
     :root {
       --bg-app: #0b192c;
       --surface: #1e3e62;
-      --surface-glass: rgba(30, 62, 98, 0.9);
+      --surface-glass: rgba(30, 62, 98, 0.95);
       --border-subtle: rgba(255, 255, 255, 0.12);
       --border-accent: #ffb703;
       
       --brand-primary: #ffffff;
       --brand-accent: #38bdf8;
       --brand-yellow: #ffb703;
-      --brand-yellow-glow: rgba(255, 183, 3, 0.25);
+      --brand-yellow-glow: rgba(255, 183, 3, 0.2);
       
       --text-main: #f8fafc;
       --text-muted: #cbd5e1;
-      --text-light: #94a3b8;
       
-      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
-      --shadow-lg: 0 0 25px rgba(255, 183, 3, 0.2);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,21 +34,18 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 90% 90%, rgba(255, 183, 3, 0.08) 0%, transparent 50%);
     }
 
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar { width: 5px; height: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg-app); }
     ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 3px; }
 
-    /* Cabeçalho Executivo em Tons de Azul & Amarelo */
+    /* Cabeçalho Compacto */
     header {
       background: var(--surface-glass);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(12px);
       border-bottom: 2px solid var(--border-accent);
-      padding: 0.9rem 2rem;
+      padding: 0.5rem 1.5rem;
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
@@ -68,102 +62,98 @@
     .logo-container {
       display: inline-flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.6rem;
       text-decoration: none;
       cursor: pointer;
     }
 
     .logo-emblem {
-      width: 44px;
-      height: 44px;
+      width: 36px;
+      height: 36px;
       background: linear-gradient(135deg, #0b192c, var(--brand-yellow));
       color: #0b192c;
-      border-radius: 12px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 800;
-      font-size: 1.15rem;
-      box-shadow: 0 0 15px var(--brand-yellow-glow);
+      font-size: 1rem;
     }
 
     .logo-title {
-      font-size: 1.55rem;
+      font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: -0.03em;
       background: linear-gradient(135deg, #ffffff 30%, var(--brand-accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      line-height: 1.1;
+      line-height: 1;
     }
 
     .logo-subtitle {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       color: var(--brand-yellow);
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       font-weight: 700;
-      margin-top: 3px;
+      margin-top: 2px;
     }
 
     .header-cta {
       background: linear-gradient(135deg, var(--brand-yellow), #f59e0b);
       color: #0b192c;
       font-weight: 800;
-      padding: 0.65rem 1.4rem;
-      border-radius: 10px;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
       border: none;
       cursor: pointer;
-      font-size: 0.85rem;
-      box-shadow: 0 0 20px var(--brand-yellow-glow);
-      transition: all 0.25s ease;
+      font-size: 0.8rem;
+      transition: all 0.2s ease;
     }
 
     .header-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(255, 183, 3, 0.5);
+      transform: translateY(-1px);
     }
 
-    /* Layout Mantendo as 3 Colunas Fixas */
+    /* Layout Compacto de 3 Colunas */
     .viewport-wrapper {
       width: 100%;
       overflow-x: auto;
       flex: 1;
-      padding: 1.75rem 0;
+      padding: 8px 0;
     }
 
     .main-layout {
       display: grid;
-      grid-template-columns: 260px 1fr 280px;
-      gap: 1.5rem;
+      grid-template-columns: 240px 1fr 260px;
+      gap: 8px;
       max-width: 1440px;
       width: 100%;
       margin: 0 auto;
-      padding: 0 1.5rem;
-      min-width: 950px;
+      padding: 0 8px;
+      min-width: 900px;
     }
 
-    /* Barras Laterais */
+    /* Barras Laterais Fixas e Compactas */
     .sidebar {
       background: var(--surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 1.25rem;
+      border-radius: 10px;
+      padding: 10px;
       height: fit-content;
       position: sticky;
-      top: 5.4rem;
+      top: 48px;
       box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(10px);
     }
 
     .sidebar h3 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--brand-yellow);
-      margin-bottom: 0.85rem;
-      padding-bottom: 0.5rem;
+      margin-bottom: 6px;
+      padding-bottom: 4px;
       border-bottom: 1px solid var(--border-subtle);
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
@@ -174,258 +164,244 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 3px;
     }
 
     .menu-item a {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.5rem;
       color: var(--text-muted);
       text-decoration: none;
-      padding: 0.7rem 0.85rem;
-      border-radius: 10px;
-      font-size: 0.88rem;
+      padding: 0.5rem 0.65rem;
+      border-radius: 6px;
+      font-size: 0.83rem;
       font-weight: 600;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       cursor: pointer;
     }
 
     .menu-item a:hover {
-      background: rgba(56, 189, 248, 0.12);
+      background: rgba(56, 189, 248, 0.1);
       color: var(--brand-accent);
-      transform: translateX(3px);
     }
 
     .menu-item a.active {
       background: rgba(255, 183, 3, 0.15);
       color: var(--brand-yellow);
       font-weight: 700;
-      border: 1px solid rgba(255, 183, 3, 0.35);
-      box-shadow: 0 0 15px var(--brand-yellow-glow);
+      border: 1px solid rgba(255, 183, 3, 0.3);
     }
 
     /* Coluna Central */
     .content-column {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 8px;
     }
 
     .pagina-conteudo {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      gap: 8px;
+      animation: fadeIn 0.2s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
+      from { opacity: 0; transform: translateY(3px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .hero-banner {
       background: linear-gradient(135deg, #132847, #1e3e62);
       border: 1px solid var(--border-accent);
-      border-radius: 20px;
-      padding: 2.5rem;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
       position: relative;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-sm);
     }
 
     .hero-banner::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 6px; height: 100%;
+      top: 0; left: 0; width: 4px; height: 100%;
       background: var(--brand-yellow);
     }
 
     .hero-banner h2 {
-      font-size: 1.9rem;
+      font-size: 1.5rem;
       font-weight: 800;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.4rem;
       color: #fff;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
     .hero-banner p {
       color: var(--text-muted);
-      font-size: 0.98rem;
-      max-width: 680px;
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      max-width: 700px;
+      line-height: 1.5;
+      margin-bottom: 0.85rem;
     }
 
     .hero-tags {
       display: flex;
-      gap: 0.5rem;
+      gap: 4px;
       flex-wrap: wrap;
     }
 
     .tag {
       font-family: 'JetBrains Mono', monospace;
-      background: rgba(255, 183, 3, 0.12);
-      border: 1px solid rgba(255, 183, 3, 0.35);
+      background: rgba(255, 183, 3, 0.1);
+      border: 1px solid rgba(255, 183, 3, 0.3);
       color: var(--brand-yellow);
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.72rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+      font-size: 0.7rem;
       font-weight: 700;
     }
 
-    /* Grids */
+    /* Grids Compactas */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 8px;
     }
 
     .service-card {
       background: var(--surface);
       border: 1px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 1.35rem;
+      border-radius: 10px;
+      padding: 1rem;
       box-shadow: var(--shadow-sm);
-      transition: all 0.25s ease;
+      transition: border-color 0.15s ease;
     }
 
     .service-card:hover {
       border-color: var(--brand-yellow);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
     }
 
     .service-icon {
-      width: 42px;
-      height: 42px;
-      background: rgba(56, 189, 248, 0.15);
+      width: 34px;
+      height: 34px;
+      background: rgba(56, 189, 248, 0.12);
       color: var(--brand-accent);
-      border-radius: 10px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 0.85rem;
-    }
-
-    .service-card h4 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.4rem;
-    }
-
-    .service-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* Caixa de Destaque para Case Ambev */
-    .case-highlight-box {
-      background: rgba(255, 183, 3, 0.05);
-      border: 1px solid rgba(255, 183, 3, 0.25);
-      border-radius: 14px;
-      padding: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .case-highlight-box h4 {
-      color: var(--brand-yellow);
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
 
-    .case-highlight-box p {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.6;
+    .service-card h4 {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.25rem;
     }
 
-    /* Botões de Contato */
+    .service-card p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Caixa de Case */
+    .case-highlight-box {
+      background: rgba(255, 183, 3, 0.04);
+      border: 1px solid rgba(255, 183, 3, 0.2);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+
+    .case-highlight-box h4 {
+      color: var(--brand-yellow);
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-highlight-box p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Contato */
     .contact-box {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      margin-top: 1.25rem;
+      gap: 8px;
+      margin-top: 0.75rem;
     }
 
     .contact-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
       background: linear-gradient(135deg, #22c55e, #16a34a);
       color: #ffffff;
-      padding: 0.9rem 1.35rem;
-      border-radius: 12px;
+      padding: 0.7rem 1rem;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 800;
-      font-size: 0.92rem;
+      font-size: 0.85rem;
       width: fit-content;
-      box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
-      transition: all 0.2s ease;
+      transition: opacity 0.2s;
     }
 
-    .contact-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
-    }
+    .contact-btn:hover { opacity: 0.9; }
 
     .contact-btn.email {
       background: linear-gradient(135deg, var(--brand-accent), #0284c7);
       color: #0b192c;
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
     }
 
     /* Widgets Laterais */
     .widget-box {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 1rem;
-      margin-bottom: 0.85rem;
+      border-radius: 8px;
+      padding: 0.75rem;
+      margin-bottom: 6px;
     }
 
-    .widget-box:last-child {
-      margin-bottom: 0;
-    }
+    .widget-box:last-child { margin-bottom: 0; }
 
     .widget-title {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: #fff;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.3rem;
     }
 
     .widget-desc {
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.3;
     }
 
     .metric-value {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       font-weight: 800;
       color: var(--brand-yellow);
-      margin-top: 0.25rem;
+      margin-top: 0.15rem;
     }
 
-    /* Rodapé */
+    /* Rodapé Compacto */
     footer {
       background: var(--surface);
       border-top: 1px solid var(--border-subtle);
-      padding: 1.25rem 2rem;
+      padding: 0.75rem 1.5rem;
       text-align: center;
       color: var(--text-muted);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       margin-top: auto;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
     }
 
     footer p span {
@@ -459,7 +435,7 @@
   <div class="viewport-wrapper">
     <div class="main-layout">
 
-      <!-- 1ª Coluna: Barra Lateral Esquerda (Navegação) -->
+      <!-- 1ª Coluna: Barra Lateral Esquerda (Fixa) -->
       <aside class="sidebar">
         <h3>Navegação</h3>
         <ul class="menu-list">
@@ -519,7 +495,7 @@
         <div id="secao-patio" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Automação de Pátio & Docas</h2>
-            <p>Elimine o uso excessivo de rádios e pranchetas de papel. Gerencie filas de caminhões e chamadas de docas com painéis em tempo real[cite: 4].</p>
+            <p>Elimine o uso excessivo de rádios e pranchetas de papel. Gerencie filas de caminhões e chamadas de docas com painéis em tempo real.</p>
             <div class="hero-tags">
               <span class="tag">Zero Rádio</span>
               <span class="tag">Controle de Portaria</span>
@@ -532,7 +508,7 @@
         <div id="secao-fefo" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Controle Rigoroso FEFO / FIFO</h2>
-            <p>Garantia de saída por prioridade de vencimento (First Expired, First Out). Proteja sua operação contra prejuízos decorrentes de produtos vencidos[cite: 3].</p>
+            <p>Garantia de saída por prioridade de vencimento (First Expired, First Out). Proteja sua operação contra prejuízos decorrentes de produtos vencidos.</p>
             <div class="hero-tags">
               <span class="tag">Algoritmo FEFO</span>
               <span class="tag">Rastreabilidade de Lotes</span>
@@ -544,7 +520,7 @@
         <div id="secao-casessucesso" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Casos de Sucesso: Ecossistema Ambev</h2>
-            <p>Conheça como a implementação integrada da <strong>Plataforma OutLog</strong> e do módulo <strong>FEFOBOX</strong> revolucionou a operação logística do cliente Ambev[cite: 3, 4, 6].</p>
+            <p>Conheça como a implementação integrada da <strong>Plataforma OutLog</strong> e do módulo <strong>FEFOBOX</strong> revolucionou a operação logística do cliente Ambev.</p>
             <div class="hero-tags">
               <span class="tag">Cliente Ambev</span>
               <span class="tag">OutLog & FEFOBOX</span>
@@ -554,11 +530,11 @@
 
           <div class="case-highlight-box">
             <h4>Transformação Operacional Realizada</h4>
-            <p><strong>Desafio:</strong> Dependência de planilhas instáveis em SharePoint, preenchimento manual em papéis com siglas ambíguas, checagens constantes via rádio e pontos cegos de inventário[cite: 3, 4, 6].</p>
+            <p><strong>Desafio:</strong> Dependência de planilhas instáveis em SharePoint, preenchimento manual em papéis com siglas ambíguas, checagens constantes via rádio e pontos cegos de inventário.</p>
             <br>
-            <p><strong>Solução RT Soft:</strong> Implantação do ecossistema digital completo composto pelo <em>ATENDIMENTO-PS</em> para pátio e carregamento[cite: 4] e o <em>FEFOBOX / RECEBIMENTO-P1</em> para gestão de estoque virtual e endereçamento dinâmico por prioridade estrita de validade[cite: 3, 6].</p>
+            <p><strong>Solução RT Soft:</strong> Implantação do ecossistema digital completo composto pelo <em>ATENDIMENTO-PS</em> para pátio e carregamento e o <em>FEFOBOX / RECEBIMENTO-P1</em> para gestão de estoque virtual e endereçamento dinâmico por prioridade estrita de validade.</p>
             <br>
-            <p><strong>Resultados:</strong> Comunicação 100% digital em 1 clique, eliminação completa de papéis e rádios, acurácia temporal contínua e ganho drástico na velocidade de atendimento e liberação de docas[cite: 3, 4, 6].</p>
+            <p><strong>Resultados:</strong> Comunicação 100% digital em 1 clique, eliminação completa de papéis e rádios, acurácia temporal contínua e ganho drástico na velocidade de atendimento e liberação de docas.</p>
           </div>
         </div>
 
@@ -577,7 +553,7 @@
             <div class="service-card">
               <div class="service-icon">🍺</div>
               <h4>Ambev</h4>
-              <p><strong>Projeto:</strong> Plataforma OutLog & FEFOBOX[cite: 6].<br>Gestão completa de pátio, atendimento, carregamento e controle rigoroso de estoque virtual 24/7[cite: 3, 4].</p>
+              <p><strong>Projeto:</strong> Plataforma OutLog & FEFOBOX.<br>Gestão completa de pátio, atendimento, carregamento e controle rigoroso de estoque virtual 24/7.</p>
             </div>
 
             <div class="service-card">
@@ -626,25 +602,25 @@
 
       </main>
 
-      <!-- 3ª Coluna: Barra Lateral Direita (Widgets e Performance) -->
+      <!-- 3ª Coluna: Barra Lateral Direita (Fixa) -->
       <aside class="sidebar">
         <h3>Performance</h3>
         
         <div class="widget-box">
           <div class="widget-title">⏱️ Ganho Médio</div>
-          <div class="widget-desc">Redução no tempo de ciclo de atendimento e liberação de docas[cite: 4].</div>
+          <div class="widget-desc">Redução no tempo de ciclo de atendimento e liberação de docas.</div>
           <div class="metric-value">-35%</div>
         </div>
 
         <div class="widget-box">
           <div class="widget-title">🛡️ Confiabilidade</div>
-          <div class="widget-desc">Uptime em soluções na nuvem sem perda de dados históricos[cite: 4].</div>
+          <div class="widget-desc">Uptime em soluções na nuvem sem perda de dados históricos.</div>
           <div class="metric-value">99.9%</div>
         </div>
 
         <div class="widget-box">
           <div class="widget-title">💡 Dica RT Soft</div>
-          <div class="widget-desc">A digitalização de processos elimina até 100% dos erros manuais e de rádio[cite: 3, 4].</div>
+          <div class="widget-desc">A digitalização elimina erros manuais e de rádio.</div>
         </div>
       </aside>
 
