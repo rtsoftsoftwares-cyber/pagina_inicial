@@ -151,6 +151,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       transition: all 0.2s;
+      cursor: pointer;
     }
 
     .menu-item a:hover, .menu-item a.active {
@@ -159,11 +160,23 @@
       transform: translateX(3px);
     }
 
-    /* Coluna Central (Conteúdo Principal) */
+    /* Coluna Central (Conteúdo Principal Dinâmico) */
     .content-column {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
+    }
+
+    .pagina-conteudo {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .hero-banner {
@@ -208,7 +221,7 @@
       font-weight: 600;
     }
 
-    /* Grade de Serviços */
+    /* Grade de Serviços / Cards */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -245,6 +258,44 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.5;
+    }
+
+    /* Estilo específico para Contato */
+    .contact-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(0, 245, 212, 0.1);
+      border: 1px solid var(--neon-green);
+      color: var(--neon-green);
+      padding: 0.85rem 1.25rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      width: fit-content;
+      transition: all 0.2s;
+    }
+
+    .contact-btn:hover {
+      background: rgba(0, 245, 212, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.email {
+      border-color: var(--neon-cyan);
+      color: var(--neon-cyan);
+      background: rgba(0, 242, 254, 0.1);
+    }
+    .contact-btn.email:hover {
+      background: rgba(0, 242, 254, 0.2);
     }
 
     /* Widgets da Barra Direita */
@@ -300,7 +351,7 @@
       font-weight: 600;
     }
 
-    /* Responsividade para telas menores */
+    /* Responsividade */
     @media (max-width: 1024px) {
       .main-layout {
         grid-template-columns: 1fr;
@@ -322,65 +373,139 @@
         <p>Consultoria Logística & Automação</p>
       </div>
     </div>
-    <button class="header-cta" onclick="alert('Entre em contato para agendar uma consultoria!')">Fale com Especialista</button>
+    <button class="header-cta" onclick="mudarPagina('contato', document.getElementById('menuContato'))">Fale com Especialista</button>
   </header>
 
   <!-- Estrutura Principal de 3 Colunas -->
   <div class="main-layout">
 
-    <!-- 1ª Coluna: Barra Lateral Esquerda (Menu de Navegação) -->
+    <!-- 1ª Coluna: Barra Lateral Esquerda (Menu Dinâmico) -->
     <aside class="sidebar">
       <h3>Navegação</h3>
       <ul class="menu-list">
-        <li class="menu-item"><a href="#" class="active">📊 Visão Geral</a></li>
-        <li class="menu-item"><a href="#">⚙️ Consultoria WMS</a></li>
-        <li class="menu-item"><a href="#">🚀 Automação Pátio</a></li>
-        <li class="menu-item"><a href="#">📦 Controle FEFO/FIFO</a></li>
-        <li class="menu-item"><a href="#">📈 Otimização de Frota</a></li>
-        <li class="menu-item"><a href="#">🛠️ Web Apps & Nuvem</a></li>
-        <li class="menu-item"><a href="#">📞 Contato Direto</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('home', this)" class="active" id="menuHome">📊 Visão Geral</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('wms', this)">⚙️ Consultoria WMS</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('patio', this)">🚀 Automação Pátio</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('fefo', this)">📦 Controle FEFO/FIFO</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('frota', this)">📈 Otimização de Frota</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('webapps', this)">🛠️ Web Apps & Nuvem</a></li>
+        <li class="menu-item"><a href="#" onclick="mudarPagina('contato', this)" id="menuContato">📞 Contato Direto</a></li>
       </ul>
     </aside>
 
-    <!-- 2ª Coluna: Coluna Central (Conteúdo Principal) -->
+    <!-- 2ª Coluna: Coluna Central (Páginas Dinâmicas SPA) -->
     <main class="content-column">
       
-      <!-- Banner de Boas-Vindas / Hero -->
-      <div class="hero-banner">
-        <h2>Engenharia Logística & Software Sob Medida</h2>
-        <p>Eliminamos gargalos operacionais, planilhas instáveis e perdas de estoque por validade. Conectamos atendimento, armazém e expedição em fluxos digitais de alta performance.</p>
-        <div class="hero-tags">
-          <span class="tag">Zero Papel</span>
-          <span class="tag">Sincronização 24/7</span>
-          <span class="tag">Redução de Custos</span>
-          <span class="tag">Algoritmos FEFO</span>
+      <!-- PÁGINA 01: VISÃO GERAL -->
+      <div id="secao-home" class="pagina-conteudo">
+        <div class="hero-banner">
+          <h2>Engenharia Logística & Software Sob Medida</h2>
+          <p>Eliminamos gargalos operacionais, planilhas instáveis e perdas de estoque por validade. Conectamos atendimento, armazém e expedição em fluxos digitais de alta performance.</p>
+          <div class="hero-tags">
+            <span class="tag">Zero Papel</span>
+            <span class="tag">Sincronização 24/7</span>
+            <span class="tag">Redução de Custos</span>
+          </div>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">📋</div>
+            <h4>Diagnóstico Operacional</h4>
+            <p>Mapeamento completo dos fluxos logísticos para identificar perdas de tempo e gargalos ocultos.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">⚡</div>
+            <h4>Sistemas Web & APIs</h4>
+            <p>Substituição de arquivos descentralizados por plataformas web robustas baseadas em nuvem.</p>
+          </div>
         </div>
       </div>
 
-      <!-- Serviços Principais -->
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">📋</div>
-          <h4>Diagnóstico Operacional</h4>
-          <p>Mapeamento completo dos processos de recebimento, separação (picking) e expedição para identificar perdas de tempo e gargalos ocultos.</p>
+      <!-- PÁGINA 02: CONSULTORIA WMS -->
+      <div id="secao-wms" class="pagina-conteudo" style="display: none;">
+        <div class="hero-banner">
+          <h2>Consultoria WMS Especializada</h2>
+          <p>Otimizamos o endereçamento, a curva ABC e o fluxo de inventário do seu armazém para maximizar a velocidade de separação e reduzir erros de expedição.</p>
+          <div class="hero-tags">
+            <span class="tag">Endereçamento Dinâmico</span>
+            <span class="tag">Curva ABC</span>
+            <span class="tag">Acurácia de Inventário</span>
+          </div>
         </div>
+      </div>
 
-        <div class="service-card">
-          <div class="service-icon">⚡</div>
-          <h4>Sistemas Web & APIs Ágeis</h4>
-          <p>Substituição de arquivos descentralizados por plataformas web robustas baseadas em nuvem, garantindo estabilidade e zero travamentos.</p>
+      <!-- PÁGINA 03: AUTOMAÇÃO DE PÁTIO -->
+      <div id="secao-patio" class="pagina-conteudo" style="display: none;">
+        <div class="hero-banner">
+          <h2>Automação de Pátio & Docas</h2>
+          <p>Elimine o uso excessivo de rádios e pranchetas de papel. Gerencie filas de caminhões e chamadas de docas com painéis em tempo real.</p>
+          <div class="hero-tags">
+            <span class="tag">Zero Rádio</span>
+            <span class="tag">Controle de Portaria</span>
+            <span class="tag">Agilidade de Carga</span>
+          </div>
         </div>
+      </div>
 
-        <div class="service-card">
-          <div class="service-icon">🎯</div>
-          <h4>Gestão Rigorosa de Lotes</h4>
-          <p>Implementação de rotinas automatizadas por prioridade de vencimento (First Expired, First Out) com integração direta ao chão de fábrica.</p>
+      <!-- PÁGINA 04: CONTROLE FEFO / FIFO -->
+      <div id="secao-fefo" class="pagina-conteudo" style="display: none;">
+        <div class="hero-banner">
+          <h2>Controle Rigoroso FEFO / FIFO</h2>
+          <p>Garantia de saída por prioridade de vencimento (First Expired, First Out). Proteja sua operação contra prejuízos decorrentes de produtos vencidos.</p>
+          <div class="hero-tags">
+            <span class="tag">Algoritmo FEFO</span>
+            <span class="tag">Rastreabilidade de Lotes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINA 05: OTIMIZAÇÃO DE FROTA -->
+      <div id="secao-frota" class="pagina-conteudo" style="display: none;">
+        <div class="hero-banner">
+          <h2>Otimização de Frota & Distribuição</h2>
+          <p>Planejamento de rotas e cubagem inteligente para maximizar a ocupação dos veículos e reduzir custos operacionais de transporte.</p>
+          <div class="hero-tags">
+            <span class="tag">Cubagem</span>
+            <span class="tag">Redução de Frete</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINA 06: WEB APPS E NUVEM -->
+      <div id="secao-webapps" class="pagina-conteudo" style="display: none;">
+        <div class="hero-banner">
+          <h2>Desenvolvimento de Web Apps</h2>
+          <p>Criamos ferramentas sob medida conectadas a planilhas ou bancos de dados na nuvem para dar autonomia e segurança total aos operadores e diretores.</p>
+          <div class="hero-tags">
+            <span class="tag">Cloud Apps</span>
+            <span class="tag">Segurança de Dados</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PÁGINA 07: CONTATO DIRETO -->
+      <div id="secao-contato" class="pagina-conteudo" style="display: none;">
+        <div class="hero-banner">
+          <h2>Fale com a RT Soft</h2>
+          <p>Pronto para transformar a eficiência da sua operação logística? Entre em contato agora mesmo pelos nossos canais oficiais:</p>
+          
+          <div class="contact-box">
+            <!-- Botão WhatsApp com mensagem pré-definida -->
+            <a href="https://wa.me/5551981724762?text=Oi,%20como%20contrato%20seus%20servi%C3%A7os?" target="_blank" class="contact-btn">
+              💬 Chamar no WhatsApp (51 98172-4762)
+            </a>
+
+            <!-- Botão E-mail -->
+            <a href="mailto:rtsoftsoftwares@gmail.com" class="contact-btn email">
+              ✉️ Enviar E-mail (rtsoftsoftwares@gmail.com)
+            </a>
+          </div>
         </div>
       </div>
 
     </main>
 
-    <!-- 3ª Coluna: Barra Lateral Direita (Widgets e Indicadores) -->
+    <!-- 3ª Coluna: Barra Lateral Direita (Widgets) -->
     <aside class="sidebar">
       <h3>Performance</h3>
       
@@ -398,7 +523,7 @@
 
       <div class="widget-box" style="margin-top: 1.5rem;">
         <div class="widget-title">💡 Dica RT Soft</div>
-        <div class="widget-desc">A digitalização de processos elimina até 100% dos erros de transcrição manual por rádio ou papel.</div>
+        <div class="widget-desc">A digitalização de processos elimina até 100% dos erros de transcrição manual.</div>
       </div>
     </aside>
 
@@ -408,6 +533,32 @@
   <footer>
     <p>&copy; 2026 <span>RT Soft - Consultoria Logística e Automação de Processos</span>. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- Script de Navegação Dinâmica (SPA) -->
+  <script>
+    function mudarPagina(nomeSecao, elementoMenu) {
+      // 1. Esconde todas as seções
+      const paginas = document.querySelectorAll('.pagina-conteudo');
+      paginas.forEach(p => p.style.display = 'none');
+
+      // 2. Mostra a seção selecionada
+      const paginaAtiva = document.getElementById('secao-' + nomeSecano || 'secao-' + nomeSecao);
+      const alvo = document.getElementById('secao-' + nomeSecao);
+      if (alvo) {
+        alvo.style.display = 'flex';
+      }
+
+      // 3. Atualiza classes ativas do menu esquerdo
+      const links = document.querySelectorAll('.menu-list a');
+      links.forEach(l => l.classList.remove('active'));
+      if (elementoMenu) {
+        elementoMenu.classList.add('active');
+      }
+
+      // Rola suavemente para o topo em dispositivos móveis
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
