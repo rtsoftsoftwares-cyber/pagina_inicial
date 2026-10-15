@@ -534,7 +534,7 @@
     <p>&copy; 2026 <span>RT Soft - Consultoria Logística e Automação de Processos</span>. Todos os direitos reservados.</p>
   </footer>
 
-  <!-- Script de Navegação Dinâmica (SPA) -->
+  <!-- Script de Navegação Dinâmica Corrigido -->
   <script>
     function mudarPagina(nomeSecao, elementoMenu) {
       // 1. Esconde todas as seções
@@ -542,7 +542,6 @@
       paginas.forEach(p => p.style.display = 'none');
 
       // 2. Mostra a seção selecionada
-      const paginaAtiva = document.getElementById('secao-' + nomeSecano || 'secao-' + nomeSecao);
       const alvo = document.getElementById('secao-' + nomeSecao);
       if (alvo) {
         alvo.style.display = 'flex';
