@@ -7,25 +7,25 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-app: #f1f5f9;
-      --surface: #ffffff;
-      --surface-glass: rgba(255, 255, 255, 0.9);
-      --border-subtle: #e2e8f0;
-      --border-accent: #cbd5e1;
+      --bg-app: #070b14;
+      --surface: #0f172a;
+      --surface-glass: rgba(15, 23, 42, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(0, 242, 254, 0.25);
       
-      --brand-primary: #0f172a;
-      --brand-accent: #0284c7;
-      --brand-accent-light: #e0f2fe;
-      --brand-success: #10b981;
-      --brand-success-light: #d1fae5;
+      --brand-primary: #f8fafc;
+      --brand-accent: #00f2fe;
+      --brand-accent-glow: rgba(0, 242, 254, 0.2);
+      --brand-success: #00f5d4;
+      --brand-purple: #7928ca;
       
-      --text-main: #0f172a;
-      --text-muted: #64748b;
-      --text-light: #94a3b8;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
       
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
-      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-      --shadow-lg: 0 20px 35px -10px rgba(2, 132, 199, 0.08);
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.6);
+      --shadow-lg: 0 0 25px rgba(0, 242, 254, 0.15);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,17 +38,19 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(121, 40, 202, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(0, 242, 254, 0.1) 0%, transparent 45%);
     }
 
-    /* Scrollbar personalizada sofisticada */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg-app); }
-    ::-webkit-scrollbar-thumb { background: var(--border-accent); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
 
-    /* Cabeçalho Sofisticado */
+    /* Cabeçalho Executivo Sofisticado */
     header {
       background: var(--surface-glass);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
       padding: 0.85rem 2rem;
       display: grid;
@@ -67,83 +69,83 @@
     .logo-container {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       text-decoration: none;
+      cursor: pointer;
     }
 
     .logo-emblem {
-      width: 42px;
-      height: 42px;
-      background: linear-gradient(135deg, #0f172a, var(--brand-accent));
-      color: #fff;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, #1e293b, var(--brand-accent));
+      color: #000;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-family: 'JetBrains Mono', monospace;
       font-weight: 800;
-      font-size: 1.1rem;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-lg);
     }
 
     .logo-title {
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 800;
-      letter-spacing: -0.04em;
-      background: linear-gradient(135deg, #0f172a 30%, var(--brand-accent) 100%);
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #ffffff 30%, var(--brand-accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.1;
     }
 
     .logo-subtitle {
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       font-weight: 700;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .header-cta {
-      background: var(--brand-primary);
-      color: #ffffff;
-      font-weight: 700;
-      padding: 0.6rem 1.35rem;
+      background: linear-gradient(135deg, var(--brand-accent), #00a8ff);
+      color: #000;
+      font-weight: 800;
+      padding: 0.65rem 1.4rem;
       border-radius: 10px;
       border: none;
       cursor: pointer;
       font-size: 0.85rem;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+      transition: all 0.25s ease;
     }
 
     .header-cta:hover {
-      background: var(--brand-accent);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
     }
 
-    /* Container Principal mantendo as 3 colunas fluídas e fixas */
+    /* Layout Mantendo as 3 Colunas Fixas */
     .viewport-wrapper {
       width: 100%;
       overflow-x: auto;
       flex: 1;
-      padding: 1.5rem 0;
+      padding: 1.75rem 0;
     }
 
     .main-layout {
       display: grid;
       grid-template-columns: 260px 1fr 280px;
-      gap: 1.25rem;
+      gap: 1.5rem;
       max-width: 1440px;
       width: 100%;
       margin: 0 auto;
-      padding: 0 1.25rem;
-      min-width: 900px; /* Garante que as 3 colunas fiquem sempre lado a lado, mesmo em telas menores */
+      padding: 0 1.5rem;
+      min-width: 950px;
     }
 
-    /* Estilo das Barras Laterais */
+    /* Barras Laterais */
     .sidebar {
       background: var(--surface);
       border: 1px solid var(--border-subtle);
@@ -151,8 +153,9 @@
       padding: 1.25rem;
       height: fit-content;
       position: sticky;
-      top: 5rem;
+      top: 5.2rem;
       box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
     }
 
     .sidebar h3 {
@@ -162,17 +165,17 @@
       color: var(--brand-accent);
       margin-bottom: 0.85rem;
       padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--brand-accent-light);
+      border-bottom: 1px solid var(--border-subtle);
       font-family: 'JetBrains Mono', monospace;
       font-weight: 700;
     }
 
-    /* Menu de Navegação Esquerdo */
+    /* Menu Esquerdo */
     .menu-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.35rem;
+      gap: 0.4rem;
     }
 
     .menu-item a {
@@ -190,29 +193,30 @@
     }
 
     .menu-item a:hover {
-      background: var(--bg-app);
+      background: rgba(0, 242, 254, 0.08);
       color: var(--brand-accent);
       transform: translateX(3px);
     }
 
     .menu-item a.active {
-      background: var(--brand-accent-light);
+      background: rgba(0, 242, 254, 0.15);
       color: var(--brand-accent);
       font-weight: 700;
-      box-shadow: inset 3px 0 0 var(--brand-accent);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
     }
 
-    /* Coluna Central (Conteúdo SPA Dinâmico) */
+    /* Coluna Central */
     .content-column {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
 
     .pagina-conteudo {
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.5rem;
       animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -222,8 +226,8 @@
     }
 
     .hero-banner {
-      background: var(--surface);
-      border: 1px solid var(--border-subtle);
+      background: linear-gradient(135deg, rgba(18, 26, 41, 0.95), rgba(121, 40, 202, 0.2));
+      border: 1px solid var(--border-accent);
       border-radius: 20px;
       padding: 2.5rem;
       position: relative;
@@ -234,15 +238,15 @@
     .hero-banner::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; width: 6px; height: 100%;
-      background: linear-gradient(to bottom, var(--brand-accent), #6366f1);
+      top: 0; left: 0; width: 5px; height: 100%;
+      background: var(--brand-accent);
     }
 
     .hero-banner h2 {
-      font-size: 1.85rem;
+      font-size: 1.9rem;
       font-weight: 800;
       margin-bottom: 0.75rem;
-      color: var(--brand-primary);
+      color: #fff;
       letter-spacing: -0.03em;
       line-height: 1.2;
     }
@@ -263,20 +267,20 @@
 
     .tag {
       font-family: 'JetBrains Mono', monospace;
-      background: var(--brand-success-light);
-      border: 1px solid #a7f3d0;
-      color: #047857;
+      background: rgba(0, 245, 212, 0.12);
+      border: 1px solid rgba(0, 245, 212, 0.3);
+      color: var(--brand-success);
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
       font-size: 0.72rem;
       font-weight: 700;
     }
 
-    /* Grid de Serviços Sofisticados */
+    /* Grids */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1rem;
+      gap: 1.25rem;
     }
 
     .service-card {
@@ -291,26 +295,26 @@
     .service-card:hover {
       border-color: var(--brand-accent);
       transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-lg);
     }
 
     .service-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--brand-accent-light);
+      width: 42px;
+      height: 42px;
+      background: rgba(0, 242, 254, 0.1);
       color: var(--brand-accent);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 0.85rem;
     }
 
     .service-card h4 {
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: var(--brand-primary);
+      color: #fff;
       margin-bottom: 0.4rem;
     }
 
@@ -320,11 +324,32 @@
       line-height: 1.5;
     }
 
-    /* Caixa de Contato Estilizada */
+    /* Estilos específicos para Case Ambev e Parceiros */
+    .case-highlight-box {
+      background: rgba(0, 245, 212, 0.04);
+      border: 1px solid rgba(0, 245, 212, 0.2);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .case-highlight-box h4 {
+      color: var(--brand-success);
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-highlight-box p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Botões de Contato */
     .contact-box {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 1rem;
       margin-top: 1.25rem;
     }
 
@@ -332,36 +357,32 @@
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      background: #059669;
-      color: #ffffff;
+      background: linear-gradient(135deg, #00f5d4, #00b4d8);
+      color: #000;
       padding: 0.9rem 1.35rem;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.92rem;
       width: fit-content;
-      box-shadow: 0 4px 12px rgba(5, 150, 105, 0.2);
+      box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
       transition: all 0.2s ease;
     }
 
     .contact-btn:hover {
-      background: #047857;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(5, 150, 105, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
     }
 
     .contact-btn.email {
-      background: var(--brand-accent);
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
-    }
-    .contact-btn.email:hover {
-      background: #0369a1;
-      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+      background: linear-gradient(135deg, var(--brand-accent), #0077b6);
+      color: #000;
+      box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
     }
 
-    /* Widgets Barra Direita */
+    /* Widgets Laterais */
     .widget-box {
-      background: var(--bg-app);
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--border-subtle);
       border-radius: 12px;
       padding: 1rem;
@@ -375,7 +396,7 @@
     .widget-title {
       font-size: 0.78rem;
       font-weight: 700;
-      color: var(--brand-primary);
+      color: #fff;
       margin-bottom: 0.3rem;
       display: flex;
       align-items: center;
@@ -405,7 +426,7 @@
       color: var(--text-muted);
       font-size: 0.82rem;
       margin-top: auto;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.01);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
     }
 
     footer p span {
@@ -421,13 +442,13 @@
     <div class="header-left"></div>
     
     <div class="header-center">
-      <a href="#" onclick="mudarPagina('home', document.getElementById('menuHome'))" class="logo-container">
+      <div class="logo-container" onclick="mudarPagina('home', document.getElementById('menuHome'))">
         <div class="logo-emblem">RT</div>
         <div style="text-align: left;">
           <div class="logo-title">RT Soft</div>
           <div class="logo-subtitle">Consultoria Logística & Automação</div>
         </div>
-      </a>
+      </div>
     </div>
 
     <div class="header-right">
@@ -435,7 +456,7 @@
     </div>
   </header>
 
-  <!-- Wrapper com scroll horizontal controlado para manter as 3 colunas em qualquer tela -->
+  <!-- Wrapper Principal -->
   <div class="viewport-wrapper">
     <div class="main-layout">
 
@@ -447,7 +468,8 @@
           <li class="menu-item"><a href="#" onclick="mudarPagina('wms', this)">⚙️ Consultoria WMS</a></li>
           <li class="menu-item"><a href="#" onclick="mudarPagina('patio', this)">🚀 Automação Pátio</a></li>
           <li class="menu-item"><a href="#" onclick="mudarPagina('fefo', this)">📦 Controle FEFO/FIFO</a></li>
-          <li class="menu-item"><a href="#" onclick="mudarPagina('frota', this)">📈 Otimização Frota</a></li>
+          <li class="menu-item"><a href="#" onclick="mudarPagina('casessucesso', this)">🏆 Casos de Sucesso</a></li>
+          <li class="menu-item"><a href="#" onclick="mudarPagina('parceiros', this)">🤝 Parceiros & Clientes</a></li>
           <li class="menu-item"><a href="#" onclick="mudarPagina('webapps', this)">🛠️ Web Apps & Nuvem</a></li>
           <li class="menu-item"><a href="#" onclick="mudarPagina('contato', this)" id="menuContato">📞 Contato Direto</a></li>
         </ul>
@@ -498,7 +520,7 @@
         <div id="secao-patio" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Automação de Pátio & Docas</h2>
-            <p>Elimine o uso excessivo de rádios e pranchetas de papel. Gerencie filas de caminhões e chamadas de docas com painéis em tempo real.</p>
+            <p>Elimine o uso excessivo de rádios e pranchetas de papel. Gerencie filas de caminhões e chamadas de docas com painéis em tempo real[cite: 4].</p>
             <div class="hero-tags">
               <span class="tag">Zero Rádio</span>
               <span class="tag">Controle de Portaria</span>
@@ -511,7 +533,7 @@
         <div id="secao-fefo" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Controle Rigoroso FEFO / FIFO</h2>
-            <p>Garantia de saída por prioridade de vencimento (First Expired, First Out). Proteja sua operação contra prejuízos decorrentes de produtos vencidos.</p>
+            <p>Garantia de saída por prioridade de vencimento (First Expired, First Out). Proteja sua operação contra prejuízos decorrentes de produtos vencidos[cite: 3].</p>
             <div class="hero-tags">
               <span class="tag">Algoritmo FEFO</span>
               <span class="tag">Rastreabilidade de Lotes</span>
@@ -519,19 +541,61 @@
           </div>
         </div>
 
-        <!-- PÁGINA 05: OTIMIZAÇÃO DE FROTA -->
-        <div id="secao-frota" class="pagina-conteudo" style="display: none;">
+        <!-- PÁGINA 05: CASOS DE SUCESSO -->
+        <div id="secao-casessucesso" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
-            <h2>Otimização de Frota & Distribuição</h2>
-            <p>Planejamento de rotas e cubagem inteligente para maximizar a ocupação dos veículos e reduzir custos operacionais de transporte.</p>
+            <h2>Casos de Sucesso: Ecossistema Ambev</h2>
+            <p>Conheça como a implementação integrada da <strong>Plataforma OutLog</strong> e do módulo <strong>FEFOBOX</strong> revolucionou a operação logística do cliente Ambev[cite: 3, 4, 6].</p>
             <div class="hero-tags">
-              <span class="tag">Cubagem</span>
-              <span class="tag">Redução de Frete</span>
+              <span class="tag">Cliente Ambev</span>
+              <span class="tag">OutLog & FEFOBOX</span>
+              <span class="tag">Estoque 24/7 Real-Time</span>
+            </div>
+          </div>
+
+          <div class="case-highlight-box">
+            <h4>Transformação Operacional Realizada</h4>
+            <p><strong>Desafio:</strong> Dependência de planilhas instáveis em SharePoint, preenchimento manual em papéis com siglas ambíguas, checagens constantes via rádio e pontos cegos de inventário[cite: 3, 4, 6].</p>
+            <br>
+            <p><strong>Solução RT Soft:</strong> Implantação do ecossistema digital completo composto pelo <em>ATENDIMENTO-PS</em> para pátio e carregamento[cite: 4] e o <em>FEFOBOX / RECEBIMENTO-P1</em> para gestão de estoque virtual e endereçamento dinâmico por prioridade estrita de validade[cite: 3, 6].</p>
+            <br>
+            <p><strong>Resultados:</strong> Comunicação 100% digital em 1 clique, eliminação completa de papéis e rádios, acurácia temporal contínua e ganho drástico na velocidade de atendimento e liberação de docas[cite: 3, 4, 6].</p>
+          </div>
+        </div>
+
+        <!-- PÁGINA 06: PARCEIROS & CLIENTES -->
+        <div id="secao-parceiros" class="pagina-conteudo" style="display: none;">
+          <div class="hero-banner">
+            <h2>Nossos Parceiros & Projetos</h2>
+            <p>Conheça as marcas líderes que confiam na engenharia de software e automação logística da RT Soft:</p>
+            <div class="hero-tags">
+              <span class="tag">Parcerias Estratégicas</span>
+              <span class="tag">Sistemas Dedicados</span>
+            </div>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🍺</div>
+              <h4>Ambev</h4>
+              <p><strong>Projeto:</strong> Plataforma OutLog & FEFOBOX[cite: 6].<br>Gestão completa de pátio, atendimento, carregamento e controle rigoroso de estoque virtual 24/7[cite: 3, 4].</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">🛒</div>
+              <h4>Mercados RedeFort</h4>
+              <p><strong>Projeto:</strong> AutoPDV RTSoft.<br>Automação inteligente para frente de caixa, agilizando transações e integrando o fluxo comercial ao estoque.</p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon">💊</div>
+              <h4>Maxxi Farmácias</h4>
+              <p><strong>Projeto:</strong> SJ-SCAN - Atendimento Inteligente.<br>Solução simbólica/futura voltada à triagem rápida e atendimento automatizado no varejo farmacêutico.</p>
             </div>
           </div>
         </div>
 
-        <!-- PÁGINA 06: WEB APPS E NUVEM -->
+        <!-- PÁGINA 07: WEB APPS E NUVEM -->
         <div id="secao-webapps" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Desenvolvimento de Web Apps</h2>
@@ -543,19 +607,17 @@
           </div>
         </div>
 
-        <!-- PÁGINA 07: CONTATO DIRETO -->
+        <!-- PÁGINA 08: CONTATO DIRETO -->
         <div id="secao-contato" class="pagina-conteudo" style="display: none;">
           <div class="hero-banner">
             <h2>Fale com a RT Soft</h2>
             <p>Pronto para transformar a eficiência da sua operação logística? Entre em contato agora mesmo pelos nossos canais oficiais:</p>
             
             <div class="contact-box">
-              <!-- Botão WhatsApp com mensagem pré-definida e número configurado -->
               <a href="https://wa.me/5551981724762?text=Oi,%20como%20contrato%20seus%20servi%C3%A7os?" target="_blank" class="contact-btn">
                 💬 Chamar no WhatsApp (51 98172-4762)
               </a>
 
-              <!-- Botão E-mail configurado -->
               <a href="mailto:rtsoftsoftwares@gmail.com" class="contact-btn email">
                 ✉️ Enviar E-mail (rtsoftsoftwares@gmail.com)
               </a>
@@ -571,19 +633,19 @@
         
         <div class="widget-box">
           <div class="widget-title">⏱️ Ganho Médio</div>
-          <div class="widget-desc">Redução no tempo de ciclo de atendimento e liberação de docas.</div>
+          <div class="widget-desc">Redução no tempo de ciclo de atendimento e liberação de docas[cite: 4].</div>
           <div class="metric-value">-35%</div>
         </div>
 
         <div class="widget-box">
           <div class="widget-title">🛡️ Confiabilidade</div>
-          <div class="widget-desc">Uptime em soluções na nuvem sem perda de dados históricos.</div>
+          <div class="widget-desc">Uptime em soluções na nuvem sem perda de dados históricos[cite: 4].</div>
           <div class="metric-value">99.9%</div>
         </div>
 
         <div class="widget-box">
           <div class="widget-title">💡 Dica RT Soft</div>
-          <div class="widget-desc">A digitalização de processos elimina até 100% dos erros manuais.</div>
+          <div class="widget-desc">A digitalização de processos elimina até 100% dos erros manuais e de rádio[cite: 3, 4].</div>
         </div>
       </aside>
 
@@ -598,24 +660,20 @@
   <!-- Script de Navegação Dinâmica (SPA) -->
   <script>
     function mudarPagina(nomeSecao, elementoMenu) {
-      // 1. Esconde todas as seções
       const paginas = document.querySelectorAll('.pagina-conteudo');
       paginas.forEach(p => p.style.display = 'none');
 
-      // 2. Mostra a seção selecionada
       const alvo = document.getElementById('secao-' + nomeSecao);
       if (alvo) {
         alvo.style.display = 'flex';
       }
 
-      // 3. Atualiza classes ativas do menu esquerdo
       const links = document.querySelectorAll('.menu-list a');
       links.forEach(l => l.classList.remove('active'));
       if (elementoMenu) {
         elementoMenu.classList.add('active');
       }
 
-      // Rola suavemente para o topo em dispositivos móveis
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
